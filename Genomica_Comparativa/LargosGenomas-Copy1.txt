@@ -1,0 +1,18 @@
+N. equitans	0.490885	intracelular obligado
+M. jannaschii	1.73993	libre
+M. barkeri	4.56045	libre
+P. marinus	1.70206	libre
+E. coli	5.14183	libre
+B. japonicum	9.22421	libre
+M. pneumoniae	0.817176	intracelular obligado
+B. microti	6.63	
+L. major	32.8551	
+S. minutum	609.476	intracelular obligado
+Ameba	670000	
+P. patens	477.948	
+A. thaliana	107.456	
+Helecho	250000	
+D. melanogaster	148.504	
+B. germanica	2037.2	
+H. sapiens	2996.42	
+Salamandra	120000	
