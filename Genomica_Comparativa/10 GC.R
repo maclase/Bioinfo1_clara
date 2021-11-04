@@ -39,14 +39,46 @@ for (i in 1: round (length(seq2)/wsize)){ #round por si queda decimal el resulta
 } 
 f
 f <- unlist(f) #unlist desarma la lista y se concatenan todos los elementos en un vector
+
 #split separa cada elemento en una lista, segun el argumento en f
+ventanas <- split(x=seq2, f= f) #obtendo al secuencia de cada ventana
+contar_bases <- function(secuencia){
+  conteos <- count(seq=secuencia, wordsize = 1,alphabet = s2c('actg')) #hasta aca te dice cuanto hay de cada base
+  #csobreg <- conteos[2]/conteos[3] #aca hace la division C/G
+  cmenosg <-conteos[2]-conteos[3]
+  gc_skew <- (conteos[3]-conteos[2])/(conteos[3]+conteos[2])
+  return(gc_skew)
+}
+CsobreG <- sapply(ventanas, contar_bases) #contar bases es la funcion de arriba, debuelve la divicion C/G para cada ventana
+CsobreG
+CmenosG<- sapply(ventanas, contar_bases)
+GCskew <- sapply(ventanas, contar_bases)
+GCskew
+# Plotear C/G -------------------------------------------------------------
+
+plot(CsobreG)
+plot(CmenosG, type = 'l')
+plot(GCskew)
+# Determinacion del sesgo C/G de un genoma --------------------------------
+
+genoma <- read.fasta('Ypestis.fna')
+
+#definimos largo de las ventanas
+getLength(genoma)
+wsize <- 10000
+
+#se crean ventanas 
+
+f <- list()
+for (i in 1:round(length(genoma)/wsize) ) {
+  f [[i]]=rep(i,wsize)
+}
+f
+f <- unlist(f)
 ventanas <- split(x=seq2, f= f) #obtendo al secuencia de cada ventana
 
 CsobreG <- sapply(ventanas, contar_bases) #contar bases es la funcion de arriba, debuelve la divicion C/G para cada ventana
 CsobreG
 
 
-
-
-
-
+plot(CsobreG, type='1')
