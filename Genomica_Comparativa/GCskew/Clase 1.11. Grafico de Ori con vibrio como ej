@@ -1,0 +1,4 @@
+Despues de eliminar el espacio despues de Origin // en el gb (ncbi), fusiono con el fasta (.fna). Por ultimo confirmo que soloo haya una >, indicando solo una secuencia nucleotidica
+jovyan@jupyter-238275:~/Bioinfo1_clara/Genomica_Comparativa/GCskew$ cat vibrio.gb vibrio.fna > vibrio.gbk
+jovyan@jupyter-238275:~/Bioinfo1_clara/Genomica_Comparativa/GCskew$ grep -c ">" *fna1
+Despues de esto se cambia el archivo en el documento R y listo
