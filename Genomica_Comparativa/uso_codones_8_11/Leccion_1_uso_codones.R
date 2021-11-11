@@ -36,7 +36,7 @@ sum(cArg)
 #proporcion en que c/codon esta representado
 (cArg/sum(cArg))*100
 barplot(cArg)
-#RSCU -> (ni*xij)/sum(xij)
+#RSCU -> (ni*xij)/sum(xij) -> RSCU elimina el sesgo de aa, no teniendo en cuenta la cantidad de aa q hay, sino como esta representado
 #n=6
 #x=2253
 #sumatoria de todas las secuencias=227090
