@@ -1,0 +1,214 @@
+---
+title: "Clase Tema 7"
+author: "Daniela Costa"
+date: "29/10/2018"
+output:
+  pdf_document: 
+    fig_height: 4
+    fig_width: 4
+    keep_tex: yes
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+library(seqinr)
+library(ggplot2)
+library(knitr)
+```
+
+## Largo de los genomas
+Primero vamos a ver la tabla que bajamos de aulas `LargosGenomas.txt`:  
+```{r}
+largos_genomas <- read.table("LargosGenomas.txt", 
+                             header = T, # la tabla tiene encabezado
+                             sep = "\t", # columnas separadas por tabs
+                             fill = T, # si falta un valor, llenarlo
+                             stringsAsFactors = F) # no tomar strings como factores
+colnames(largos_genomas) <- c("Org", "GenomeSize", "LifeStyle") #fijar nombres de columnas
+kable(largos_genomas) # dibujar la tabla linda
+```  
+
+Para hacer un barplot con los datos de la tabla, utilizamos la función `barplot`:  
+```{r}
+par(mar=c(10,3,1,1)) # fijar los márgenes del plot (b,l,t,r)
+barplot(height = largos_genomas$GenomeSize, # altura de las barras
+        log = "y", # eje y en escala logarítmica
+        las = 2, # etiquetas del eje x verticales
+        names.arg = largos_genomas$Org, # etiquetas de eje x
+        col = c("palevioletred1", "palevioletred", 
+                rep("steelblue",3), "steelblue1", 
+                rep("aquamarine3", 2), "aquamarine", "aquamarine3",
+                rep("darkolivegreen1", 3), 
+                rep("indianred1", 4)), #colores de las barras
+        cex.names = 0.75, # tamaño de las etiquetas del eje x
+        ylim = c(0.1,1000000)) # límites del eje y
+```  
+
+Para extraer los largos de los genomas bacterianos a partir de los archivos de secuencia bajados en `bacterias.zip`:  
+1. leer los archivos:  
+```{r}
+genoma_Bj <- read.fasta("B.japonicum/GCF_000261545.1_15354_cds_from_genomic.fna")
+genoma_Ec <- read.fasta("E.coli/GCF_000005845.2_ASM584v2_cds_from_genomic.fna")
+genoma_Pm <- read.fasta("Pmarinus/GCA_000007925.1_ASM792v1_cds_from_genomic.fna")
+genoma_Mp <- read.fasta("M_pneumoniae/GCF_000027345.1_ASM2734v1_cds_from_genomic.fna")
+```  
+2. crear una tabla "df_genomas" para almacenar los largos de los genomas.   
+```{r}
+df.genomas <- data.frame(Genoma = c("B.japonicum", "E.coli", "P.marinus", "M.pneumoniae"), 
+                         Largo = 0, stringsAsFactors = F)
+```  
+3. Cada secuencia de los genomas corresponde a una secuencia codificante. Para determinar el largo total, debemos obtener los largos de cada secuencia y sumarlos. Utilizaremos para esto las funciones getLength y sum:  
+```{r}
+df.genomas[1,2] <- sum(getLength(genoma_Bj))
+df.genomas[2,2] <- sum(getLength(genoma_Ec))
+df.genomas[3,2] <- sum(getLength(genoma_Pm))
+df.genomas[4,2] <- sum(getLength(genoma_Mp))
+```  
+
+El resultado de los largos está expresado en pb. Para pasarlo a Mb dividimos entre 1 millón:  
+```{r}
+df.genomas$Largo <- df.genomas$Largo/1e6
+```  
+
+La tabla de largo de los genomas queda así:  
+```{r, echo=FALSE}
+kable(df.genomas)
+```  
+
+¿Cómo se relacionan los largos obtenidos con los de la tabla anterior?  
+Agregamos una nuava columna a la tabla recién creada con los largos de la primera tabla:  
+```{r}
+df.genomas[,3] <- c(largos_genomas[5,2], 
+                    largos_genomas[4,2], 
+                    largos_genomas[3,2], 
+                    largos_genomas[6,2])
+colnames(df.genomas)[3] <- "Largo Total"
+```
+```{r, echo=FALSE}
+kable(df.genomas)
+``` 
+
+¿A qué se debe esta diferencia?
+
+## Composición de los genomas  
+Ahora nos centraremos en determinar la composición nucleotídica de los genomas bajados. Para esto:  
+
+1. Creamos la tabla `gc_genomas`, donde almacenaremos los contenidos GC. Para esto podemos reutilizar la primera columna de la tabla `df.genomas`:  
+```{r}
+gc_genomas <- data.frame(Genoma = df.genomas$Genoma, GC = 0)
+kable(gc_genomas)
+```
+
+2. Ahora calculamos los contenidos GC y rellenamos la tabla anterior:
+```{r}
+gc_Bj <- NULL
+for(i in 1:length(genoma_Bj)){
+  gc_Bj[i] <- GC(genoma_Bj[[i]])
+}
+gc_genomas[1,2] <- mean(gc_Bj)
+
+gc_Ec <- NULL
+for(i in 1:length(genoma_Ec)){
+  gc_Ec[i] <- GC(genoma_Ec[[i]])
+}
+gc_genomas[2,2] <- mean(gc_Ec)
+
+gc_Pm <- NULL
+for(i in 1:length(genoma_Pm)){
+  gc_Pm[i] <- GC(genoma_Pm[[i]])
+}
+gc_genomas[3,2] <- mean(gc_Pm)
+
+gc_Mp <- NULL
+for(i in 1:length(genoma_Mp)){
+  gc_Mp[i] <- GC(genoma_Mp[[i]])
+}
+gc_genomas[4,2] <- mean(gc_Mp)
+gc_genomas$GC <- gc_genomas$GC*100
+
+kable(gc_genomas)
+```
+
+Podemos representar los datos de gc de cada genoma (objetos `gc_XX`) en un boxplot:
+```{r}
+boxplot(gc_Bj, gc_Ec, gc_Mp, gc_Pm, names = c("Bj", "Ec", "Mp", "Pm"))
+```
+
+## Contenido GC en las posiciones del codón  
+Teniendo en cuenta el código genético universal:
+![Código genético universal](CodigogeneticoUniversal.jpg)
+
+Podemos observar que cada aminoácido puede estar codificado por 1 a 4 codones, y para cada posición del codón se puede esperar cierta variabilidad en el GC. Para determinar esta variabilidad vamos a calcular el GC por posición para las secuencias codificantes de *Bradyrhizobium japonicum*:
+```{r}
+gc_Bj1 <- NULL
+gc_Bj2 <- NULL
+gc_Bj3 <- NULL
+for(i in 1:length(genoma_Bj)){
+  gc_Bj1[i] <- GC1(genoma_Bj[[i]])
+  gc_Bj2[i] <- GC2(genoma_Bj[[i]])
+  gc_Bj3[i] <- GC3(genoma_Bj[[i]])
+}
+gc_Bj_pos <- data.frame(GC=gc_Bj, GC1=gc_Bj1, GC2=gc_Bj2, GC3=gc_Bj3, stringsAsFactors = F)
+ggplot(gc_Bj_pos) + 
+  geom_point(aes(x=GC, y=GC1), color = "aquamarine3", alpha = 0.5, size = 0.5) + 
+  geom_point(aes(x=GC, y=GC2), color = "palevioletred1", alpha = 0.5, size = 0.5) + 
+  geom_point(aes(x=GC, y=GC3), color = "steelblue", alpha = 0.5, size = 0.5) +
+  theme(axis.title = element_blank())
+```
+
+## Uso de codones
+Podemos calcular cuantos codones de cada tipo aparecen en las secuencias codificantes del genoma de *E. coli*. Para esto, primero concatenamos todas las secuencias (obtenemos un "supergen"):
+```{r}
+superEc <- unlist(genoma_Ec)
+head(superEc)
+```  
+Luego podemos calcular el uso de codones con la función `uco()`:
+```{r}
+uco_sEc <- uco(seq = superEc)
+head(uco_sEc)
+```
+Podemos ahora determinar cual es la frecuencia en la que un aminoácido es codificado por un codón. Aquí analizaremos los codones que codifican arginina. Para esto, primero tengo que ver qué aminoácido codifica cada uno de los codones que dan nombre a los elementos de `uco_sEc`:
+```{r}
+namesaa <- as.factor(aaa(translate(sapply(names(uco_sEc),s2c))))
+```
+Voy a nombrar cada elemento de `uco_sEc` con los nombres obtenidos antes, almacenados en `namesaa`:  
+```{r}
+uco_sEc_AA <- uco_sEc
+names(uco_sEc_AA) <- namesaa
+```
+Ahora selecciono los conteos de codones que codifican arginina, y hago un barplot con el porcentaje en que es usado cada codón:
+```{r}
+vectArg <-  grep("Arg",namesaa) # posiciones de los nombres de tabla de uso de codones que codifican Arg
+ucoArg <- uco_sEc[vectArg] # me quedo con los conteos de los codones que codifican Arg
+ucoArgPerc <-  100*ucoArg/sum(ucoArg) # transformo en %
+barplot(ucoArgPerc)
+legend("topleft",legend="uso de codones de Arg",bty="n")
+```
+
+También puedo determinar qué codón codifica más frecuentemente un aminoácido
+```{r}
+uco_df <- as.data.frame(uco_sEc, stringsAsFactors = F)
+colnames(uco_df) <- c("codon", "conteo")
+uco_df <- data.frame(namesaa, uco_df)
+aa <- as.character(unique(namesaa))
+uco_Ec <- list()
+for(i in 1:length(aa)){
+  uco_Ec[[i]] <- uco_df[which(uco_df$namesaa==aa[i]),c(2,3)]
+}
+for(i in 1:length(uco_Ec)){
+  x <- uco_Ec[[i]]
+  x[,3] <- x[,2]*100/sum(x[,2])
+  uco_Ec[[i]] <- x 
+  colnames(uco_Ec[[i]])[3] <- "porcentaje"
+}
+
+names(uco_Ec) <- aa
+uco_EcMax <- lapply(uco_Ec, function(x){x[which.max(x$porcentaje),c(1,3)]})
+uco_EcMax <- do.call(rbind, uco_EcMax)
+kable(uco_EcMax, digits = 2)
+
+```
+
+
+
+

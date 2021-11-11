@@ -21,7 +21,6 @@ identical(cuenta10,uco10) #pregunta si el lo mismo lo obtenido con count y con u
 
 
 # Voy a ver a qué aminoácido corresponde cada codón -----------------------
-
 names(uco10)
 namesaa = translate(sapply(names(uco10),s2c)) #s2c transforma en vectores cortos
 dfv=as.data.frame(uco10) #hacer data frame
