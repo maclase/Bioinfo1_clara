@@ -1,0 +1,248 @@
+
+
+ DIST   = percentage divergence (/100)
+ Length = number of sites used in comparison
+
+   1 vs.   2  DIST = 0.3438;  length =    416
+   1 vs.   3  DIST = 0.3413;  length =    416
+   1 vs.   4  DIST = 0.3413;  length =    416
+   1 vs.   5  DIST = 0.5649;  length =    416
+   1 vs.   6  DIST = 0.3413;  length =    416
+   1 vs.   7  DIST = 0.6611;  length =    416
+   1 vs.   8  DIST = 0.3413;  length =    416
+   1 vs.   9  DIST = 0.3462;  length =    416
+   1 vs.  10  DIST = 0.3438;  length =    416
+   1 vs.  11  DIST = 0.3438;  length =    416
+   1 vs.  12  DIST = 0.3438;  length =    416
+   1 vs.  13  DIST = 0.4639;  length =    416
+   1 vs.  14  DIST = 0.3413;  length =    416
+   1 vs.  15  DIST = 0.3510;  length =    416
+   1 vs.  16  DIST = 0.3534;  length =    416
+   1 vs.  17  DIST = 0.3413;  length =    416
+   1 vs.  18  DIST = 0.3413;  length =    416
+   1 vs.  19  DIST = 0.3413;  length =    416
+   1 vs.  20  DIST = 0.3389;  length =    416
+   2 vs.   3  DIST = 0.0072;  length =    416
+   2 vs.   4  DIST = 0.0072;  length =    416
+   2 vs.   5  DIST = 0.5625;  length =    416
+   2 vs.   6  DIST = 0.0048;  length =    416
+   2 vs.   7  DIST = 0.6587;  length =    416
+   2 vs.   8  DIST = 0.0048;  length =    416
+   2 vs.   9  DIST = 0.0144;  length =    416
+   2 vs.  10  DIST = 0.0096;  length =    416
+   2 vs.  11  DIST = 0.0096;  length =    416
+   2 vs.  12  DIST = 0.0168;  length =    416
+   2 vs.  13  DIST = 0.1322;  length =    416
+   2 vs.  14  DIST = 0.0048;  length =    416
+   2 vs.  15  DIST = 0.0192;  length =    416
+   2 vs.  16  DIST = 0.0264;  length =    416
+   2 vs.  17  DIST = 0.0024;  length =    416
+   2 vs.  18  DIST = 0.0048;  length =    416
+   2 vs.  19  DIST = 0.0024;  length =    416
+   2 vs.  20  DIST = 0.0168;  length =    416
+   3 vs.   4  DIST = 0.0096;  length =    416
+   3 vs.   5  DIST = 0.5625;  length =    416
+   3 vs.   6  DIST = 0.0072;  length =    416
+   3 vs.   7  DIST = 0.6587;  length =    416
+   3 vs.   8  DIST = 0.0072;  length =    416
+   3 vs.   9  DIST = 0.0168;  length =    416
+   3 vs.  10  DIST = 0.0120;  length =    416
+   3 vs.  11  DIST = 0.0120;  length =    416
+   3 vs.  12  DIST = 0.0192;  length =    416
+   3 vs.  13  DIST = 0.1298;  length =    416
+   3 vs.  14  DIST = 0.0072;  length =    416
+   3 vs.  15  DIST = 0.0168;  length =    416
+   3 vs.  16  DIST = 0.0264;  length =    416
+   3 vs.  17  DIST = 0.0048;  length =    416
+   3 vs.  18  DIST = 0.0072;  length =    416
+   3 vs.  19  DIST = 0.0048;  length =    416
+   3 vs.  20  DIST = 0.0144;  length =    416
+   4 vs.   5  DIST = 0.5625;  length =    416
+   4 vs.   6  DIST = 0.0024;  length =    416
+   4 vs.   7  DIST = 0.6587;  length =    416
+   4 vs.   8  DIST = 0.0072;  length =    416
+   4 vs.   9  DIST = 0.0120;  length =    416
+   4 vs.  10  DIST = 0.0072;  length =    416
+   4 vs.  11  DIST = 0.0072;  length =    416
+   4 vs.  12  DIST = 0.0144;  length =    416
+   4 vs.  13  DIST = 0.1346;  length =    416
+   4 vs.  14  DIST = 0.0072;  length =    416
+   4 vs.  15  DIST = 0.0168;  length =    416
+   4 vs.  16  DIST = 0.0288;  length =    416
+   4 vs.  17  DIST = 0.0048;  length =    416
+   4 vs.  18  DIST = 0.0072;  length =    416
+   4 vs.  19  DIST = 0.0048;  length =    416
+   4 vs.  20  DIST = 0.0168;  length =    416
+   5 vs.   6  DIST = 0.5625;  length =    416
+   5 vs.   7  DIST = 0.1514;  length =    416
+   5 vs.   8  DIST = 0.5625;  length =    416
+   5 vs.   9  DIST = 0.5625;  length =    416
+   5 vs.  10  DIST = 0.5625;  length =    416
+   5 vs.  11  DIST = 0.5625;  length =    416
+   5 vs.  12  DIST = 0.5673;  length =    416
+   5 vs.  13  DIST = 0.6827;  length =    416
+   5 vs.  14  DIST = 0.5625;  length =    416
+   5 vs.  15  DIST = 0.5649;  length =    416
+   5 vs.  16  DIST = 0.5625;  length =    416
+   5 vs.  17  DIST = 0.5625;  length =    416
+   5 vs.  18  DIST = 0.5625;  length =    416
+   5 vs.  19  DIST = 0.5625;  length =    416
+   5 vs.  20  DIST = 0.5601;  length =    416
+   6 vs.   7  DIST = 0.6587;  length =    416
+   6 vs.   8  DIST = 0.0048;  length =    416
+   6 vs.   9  DIST = 0.0096;  length =    416
+   6 vs.  10  DIST = 0.0048;  length =    416
+   6 vs.  11  DIST = 0.0048;  length =    416
+   6 vs.  12  DIST = 0.0120;  length =    416
+   6 vs.  13  DIST = 0.1322;  length =    416
+   6 vs.  14  DIST = 0.0048;  length =    416
+   6 vs.  15  DIST = 0.0144;  length =    416
+   6 vs.  16  DIST = 0.0264;  length =    416
+   6 vs.  17  DIST = 0.0024;  length =    416
+   6 vs.  18  DIST = 0.0048;  length =    416
+   6 vs.  19  DIST = 0.0024;  length =    416
+   6 vs.  20  DIST = 0.0144;  length =    416
+   7 vs.   8  DIST = 0.6587;  length =    416
+   7 vs.   9  DIST = 0.6562;  length =    416
+   7 vs.  10  DIST = 0.6538;  length =    416
+   7 vs.  11  DIST = 0.6538;  length =    416
+   7 vs.  12  DIST = 0.6611;  length =    416
+   7 vs.  13  DIST = 0.7500;  length =    416
+   7 vs.  14  DIST = 0.6587;  length =    416
+   7 vs.  15  DIST = 0.6587;  length =    416
+   7 vs.  16  DIST = 0.6587;  length =    416
+   7 vs.  17  DIST = 0.6587;  length =    416
+   7 vs.  18  DIST = 0.6587;  length =    416
+   7 vs.  19  DIST = 0.6587;  length =    416
+   7 vs.  20  DIST = 0.6562;  length =    416
+   8 vs.   9  DIST = 0.0144;  length =    416
+   8 vs.  10  DIST = 0.0096;  length =    416
+   8 vs.  11  DIST = 0.0096;  length =    416
+   8 vs.  12  DIST = 0.0168;  length =    416
+   8 vs.  13  DIST = 0.1322;  length =    416
+   8 vs.  14  DIST = 0.0024;  length =    416
+   8 vs.  15  DIST = 0.0192;  length =    416
+   8 vs.  16  DIST = 0.0264;  length =    416
+   8 vs.  17  DIST = 0.0024;  length =    416
+   8 vs.  18  DIST = 0.0048;  length =    416
+   8 vs.  19  DIST = 0.0024;  length =    416
+   8 vs.  20  DIST = 0.0168;  length =    416
+   9 vs.  10  DIST = 0.0072;  length =    416
+   9 vs.  11  DIST = 0.0072;  length =    416
+   9 vs.  12  DIST = 0.0216;  length =    416
+   9 vs.  13  DIST = 0.1418;  length =    416
+   9 vs.  14  DIST = 0.0144;  length =    416
+   9 vs.  15  DIST = 0.0240;  length =    416
+   9 vs.  16  DIST = 0.0361;  length =    416
+   9 vs.  17  DIST = 0.0120;  length =    416
+   9 vs.  18  DIST = 0.0144;  length =    416
+   9 vs.  19  DIST = 0.0120;  length =    416
+   9 vs.  20  DIST = 0.0240;  length =    416
+  10 vs.  11  DIST = 0.0000;  length =    416
+  10 vs.  12  DIST = 0.0168;  length =    416
+  10 vs.  13  DIST = 0.1370;  length =    416
+  10 vs.  14  DIST = 0.0096;  length =    416
+  10 vs.  15  DIST = 0.0192;  length =    416
+  10 vs.  16  DIST = 0.0312;  length =    416
+  10 vs.  17  DIST = 0.0072;  length =    416
+  10 vs.  18  DIST = 0.0096;  length =    416
+  10 vs.  19  DIST = 0.0072;  length =    416
+  10 vs.  20  DIST = 0.0192;  length =    416
+  11 vs.  12  DIST = 0.0168;  length =    416
+  11 vs.  13  DIST = 0.1370;  length =    416
+  11 vs.  14  DIST = 0.0096;  length =    416
+  11 vs.  15  DIST = 0.0192;  length =    416
+  11 vs.  16  DIST = 0.0312;  length =    416
+  11 vs.  17  DIST = 0.0072;  length =    416
+  11 vs.  18  DIST = 0.0096;  length =    416
+  11 vs.  19  DIST = 0.0072;  length =    416
+  11 vs.  20  DIST = 0.0192;  length =    416
+  12 vs.  13  DIST = 0.1370;  length =    416
+  12 vs.  14  DIST = 0.0168;  length =    416
+  12 vs.  15  DIST = 0.0216;  length =    416
+  12 vs.  16  DIST = 0.0385;  length =    416
+  12 vs.  17  DIST = 0.0144;  length =    416
+  12 vs.  18  DIST = 0.0168;  length =    416
+  12 vs.  19  DIST = 0.0144;  length =    416
+  12 vs.  20  DIST = 0.0264;  length =    416
+  13 vs.  14  DIST = 0.1322;  length =    416
+  13 vs.  15  DIST = 0.1226;  length =    416
+  13 vs.  16  DIST = 0.1514;  length =    416
+  13 vs.  17  DIST = 0.1298;  length =    416
+  13 vs.  18  DIST = 0.1322;  length =    416
+  13 vs.  19  DIST = 0.1298;  length =    416
+  13 vs.  20  DIST = 0.1394;  length =    416
+  14 vs.  15  DIST = 0.0192;  length =    416
+  14 vs.  16  DIST = 0.0264;  length =    416
+  14 vs.  17  DIST = 0.0024;  length =    416
+  14 vs.  18  DIST = 0.0048;  length =    416
+  14 vs.  19  DIST = 0.0024;  length =    416
+  14 vs.  20  DIST = 0.0168;  length =    416
+  15 vs.  16  DIST = 0.0385;  length =    416
+  15 vs.  17  DIST = 0.0168;  length =    416
+  15 vs.  18  DIST = 0.0192;  length =    416
+  15 vs.  19  DIST = 0.0168;  length =    416
+  15 vs.  20  DIST = 0.0240;  length =    416
+  16 vs.  17  DIST = 0.0240;  length =    416
+  16 vs.  18  DIST = 0.0216;  length =    416
+  16 vs.  19  DIST = 0.0240;  length =    416
+  16 vs.  20  DIST = 0.0337;  length =    416
+  17 vs.  18  DIST = 0.0024;  length =    416
+  17 vs.  19  DIST = 0.0000;  length =    416
+  17 vs.  20  DIST = 0.0144;  length =    416
+  18 vs.  19  DIST = 0.0024;  length =    416
+  18 vs.  20  DIST = 0.0168;  length =    416
+  19 vs.  20  DIST = 0.0144;  length =    416
+
+
+			Neighbor-joining Method
+
+ Saitou, N. and Nei, M. (1987) The Neighbor-joining Method:
+ A New Method for Reconstructing Phylogenetic Trees.
+ Mol. Biol. Evol., 4(4), 406-425
+
+
+ This is an UNROOTED tree
+
+ Numbers in parentheses are branch lengths
+
+
+ Cycle   1     =  SEQ:   5 (  0.02891) joins  SEQ:   7 (  0.12253)
+
+ Cycle   2     =  SEQ:   1 (  0.17347) joins Node:   5 (  0.36379)
+
+ Cycle   3     =  SEQ:  13 (  0.11856) joins  SEQ:  15 (  0.00404)
+
+ Cycle   4     = Node:   1 (  0.15804) joins  SEQ:  16 (  0.01744)
+
+ Cycle   5     =  SEQ:  10 (  0.00000) joins  SEQ:  11 (  0.00000)
+
+ Cycle   6     =  SEQ:   9 (  0.00595) joins Node:  10 (  0.00126)
+
+ Cycle   7     = Node:   1 (  0.00313) joins  SEQ:  20 (  0.00949)
+
+ Cycle   8     =  SEQ:  12 (  0.01024) joins Node:  13 (  0.00779)
+
+ Cycle   9     =  SEQ:   8 (  0.00120) joins  SEQ:  14 (  0.00120)
+
+ Cycle  10     =  SEQ:   4 (  0.00237) joins  SEQ:   6 (  0.00000)
+
+ Cycle  11     = Node:   4 (  0.00000) joins Node:   9 (  0.00353)
+
+ Cycle  12     = Node:   1 (  0.00239) joins Node:  12 (  0.00171)
+
+ Cycle  13     = Node:   1 (  0.00073) joins  SEQ:   3 (  0.00353)
+
+ Cycle  14     = Node:   1 (  0.00079) joins Node:   4 (  0.00168)
+
+ Cycle  15     = Node:   1 (  0.00067) joins  SEQ:  18 (  0.00231)
+
+ Cycle  16     = Node:   1 (  0.00000) joins Node:   8 (  0.00119)
+
+ Cycle  17     =  SEQ:  17 (  0.00000) joins  SEQ:  19 (  0.00000)
+
+ Cycle  18 (Last cycle, trichotomy):
+
+		 Node:   1 (  0.00000) joins
+		  SEQ:   2 (  0.00240) joins
+		 Node:  17 (  0.00000) 

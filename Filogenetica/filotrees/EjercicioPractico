@@ -1,0 +1,26 @@
+Para instalar ClustalW en Linux:
+1. Descargar ClustalW 
+	wget http://www.clustal.org/download/current/clustalw-2.1-linux-x86_64-libcppstatic.tar.gz
+
+2. Descomprimir el archivo descargado:
+	tar -xzf clustalw-2.1-linux-x86_64-libcppstatic.tar.gz
+
+3. Para ejecutar ClustalW desde la carpeta donde se descargó:
+	./clustalw2
+
+4. Para obtener la ayuda del programa:
+	./clustalw2 -HELP
+
+Ejercicio:
+Obtener un árbol filogenético a partir de secuencias de una proteína de diferentes animales
+
+1. Subir el fasta adjunto (fasta.pep) a Jupyter Notebook
+2. Hacer el alineamiento con clustalw.
+3. Buscar en el manual de clustalw (./clustalw2 -HELP) el comando para que genere un árbol por el método NJ.
+4. Construir el árbol
+5. Visualizar el árbol:  Observando el árbol, detallar las incongruencias filogenéticas que encuentra (animales que aparecen juntos que no son tan parientes, o a la inversa).
+6. Explicar con una frase por qué piensa que se dan esas incongruencias en este árbol.
+¿Qué habría que hacer para obtener un árbol más fiel a la realidad de la historia evolutiva de las especies?
+7. Usando el blast online, averiguar de qué proteína se trata.
+
+
