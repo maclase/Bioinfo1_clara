@@ -51,3 +51,6 @@ dim(t2)
 borrar=which(t2$p_id_aln<50)
 t3 = t2[-borrar,]
 dim(t3)
+
+#makeblastdb -in nc.argN.PEP -dbtype prot -out argN_db
+#blastp -query nc.NeisseriaCDS.pep -db argN_db -out tablast_Neiss_argN -outfmt "6 std qseqid sseqid qlen slen length pident evalue bitscore"
