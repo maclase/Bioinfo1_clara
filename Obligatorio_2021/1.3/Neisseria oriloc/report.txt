@@ -1,0 +1,14 @@
+HistoryId: MCID_619b847d03a5945b5f31cd99
+QueryKey: 2
+ReleaseType: GenBank
+FileType: GENOME_GB
+Flat: true
+
+Query title: Select 1 document(s)
+    
+Search results count: 1
+Entries to download: 1
+
+GENOME_GB files in archive: 1
+Total size (bytes): 1544954
+Total time: 488 milliseconds
