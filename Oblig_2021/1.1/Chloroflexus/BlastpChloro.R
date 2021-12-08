@@ -17,7 +17,7 @@ for(i in 1:len){
 head(nombres_nuevos)
 
 #se genera el fasta nuevo con la secuencia en mayuscula con los headers simplificados 
-write.fasta(FASTA,names =nombres_nuevos,file.out = paste(filename,"PEP",sep=".")) 
+write.fasta(FASTA,names =nombres_nuevos,file.out = paste(filename,"pepmay",sep=".")) 
 
 #se crea data frame guardando la relacione entre nombres viejos y nuevos, generando un archivo
 guardar_nombres<-data.frame(nombres_nuevos,nombres)
@@ -47,11 +47,11 @@ head(nombres_nuevos)
 
 
 #Se genera el fasta con los headers nuevos y en mayuscula
-write.fasta(FASTA,names=nombres_nuevos,file.out = paste(filename,"CDS",sep=".")) 
+write.fasta(FASTA,names=nombres_nuevos,file.out = paste(filename,"cdsmay",sep=".")) 
 #Se traduce la secuencia nucleotidica
 fastapep <-lapply(FASTA,translate)
 #Se guarda traduccion en fasta
-write.fasta(fastapep,names = nombres_nuevos,file.out = paste(filename,"PEP",sep="."))
+write.fasta(fastapep,names = nombres_nuevos,file.out = paste(filename,"pepmay",sep="."))
 
 #Genera archivo con data frame de los nombre nuevos y viejos
 nombres_Neiss<-data.frame(nombres_nuevos,nombres)
@@ -67,5 +67,5 @@ write.table(nombres_Neiss,quote=FALSE,row.names = FALSE,
 # BLASTP ------------------------------------------------------------------
 #en terminal
 
-#makeblastdb -in argC.PEP -dbtype prot -out argC_db
-#blastp -query ChloroflexusCDS.PEP -db argC_db -out tablast_Chloro_argC -outfmt "6 std qlen slen"
+#makeblastdb -in argC.pepmay -dbtype prot -out argC_db
+#blastp -query ChloroflexusCDS.pepmay -db argC_db -out tablast_Chloro_argC -outfmt "6 std qlen slen"
