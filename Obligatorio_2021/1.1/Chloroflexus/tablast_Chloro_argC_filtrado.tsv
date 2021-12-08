@@ -1,0 +1,2 @@
+query	subject	porcid	len_aln	mism	gapop	qstart	qend	sstart	send	evalue	score	qlen	slen
+c.2733	a.74	51.802	222	105	2	5	225	1	221	3.36e-72	225	642	237
